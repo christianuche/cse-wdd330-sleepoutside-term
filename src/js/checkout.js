@@ -3,17 +3,17 @@ import CheckoutProcess from "./CheckoutProcess.mjs";
 
 loadHeaderFooter();
 
-const order = new CheckoutProcess("so-cart", ".checkout-summary");
-order.init();
+const myCheckout = new CheckoutProcess("so-cart", ".checkout-summary");
+myCheckout.init();
 
 // Add event listeners to fire calculateOrderTotal when the user changes the zip code
 document
   .querySelector("#zip")
-  .addEventListener("blur", order.calculateOrderTotal.bind(order));
+  .addEventListener("blur", myCheckout.calculateOrderTotal.bind(myCheckout));
 
 // listening for click on the button
 document.querySelector("#checkoutSubmit").addEventListener("click", (e) => {
   e.preventDefault();
 
-  order.checkout();
+  myCheckout.checkout();
 });
